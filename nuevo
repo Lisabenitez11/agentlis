@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnicatura en Soporte IT - Tu Futuro Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+}
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+}
+
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+}
+
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+}
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255,
+        215,
+        0,
+        0.5);
+    }
+            to { text-shadow: 0 0 30px rgba(255,
+        215,
+        0,
+        0.8);
+    }
+}
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,
+    0,
+    0,
+    0.3);
+            animation: pulse 2s infinite;
+}
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,
+    0,
+    0,
+    0.4);
+}
+
+        @keyframes pulse {
+    0%,
+    100% { transform: scale(1);
+    }
+            50% { transform: scale(1.05);
+    }
+}
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);
+    }
+            to { opacity: 1; transform: translateY(0);
+    }
+}
+
+        .problem {
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+            text-align: center;
+}
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,
+    1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 800px;
+}
+
+        .stat-card {
+            background: rgba(255,
+    255,
+    255,
+    0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,
+    255,
+    255,
+    0.2);
+            transition: all 0.3s ease;
+            transform: scale(0);
+            animation: scaleIn 0.8s ease forwards;
+}
+
+        .stat-card:nth-child(1) { animation-delay: 0.2s;
+}
+        .stat-card:nth-child(2) { animation-delay: 0.4s;
+}
+        .stat-card:nth-child(3) { animation-delay: 0.6s;
+}
+
+        @keyframes scaleIn {
+            from { transform: scale(0) rotate(180deg);
+    }
+            to { transform: scale(1) rotate(0deg);
+    }
+}
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,
+    255,
+    255,
+    0.2);
+}
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+}
+
+        .solution {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            align-items: center;
+}
+
+        .feature-list {
+            list-style: none;
+}
+
+        .feature-item {
+            background: rgba(255,
+    255,
+    255,
+    0.1);
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease forwards;
+}
+
+        .feature-item:nth-child(1) { animation-delay: 0.2s;
+}
+        .feature-item:nth-child(2) { animation-delay: 0.4s;
+}
+        .feature-item:nth-child(3) { animation-delay: 0.6s;
+}
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px);
+    }
+            to { opacity: 1; transform: translateX(0);
+    }
+}
+
+        .benefits {
+            background: linear-gradient(135deg, #8360c3 0%, #2ebf91 100%);
+            text-align: center;
+}
+
+        .testimonial {
+            background: rgba(255,
+    255,
+    255,
+    0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,
+    255,
+    255,
+    0.2);
+            max-width: 600px;
+            animation: fadeIn 1s ease;
+}
+
+        @keyframes fadeIn {
+            from { opacity: 0;
+    }
+            to { opacity: 1;
+    }
+}
+
+        .final-cta {
+            background: linear-gradient(135deg, #ff4081 0%, #ff6ec7 100%);
+            text-align: center;
+}
+
+        .floating-icons {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+}
+
+        .floating-icons:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 1s;
+}
+
+        .floating-icons:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 2s;
+}
+
+        @keyframes float {
+    0%,
+    100% { transform: translateY(0px);
+    }
+            50% { transform: translateY(-20px);
+    }
+}
+
+        .navigation {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+}
+
+        .nav-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255,
+    255,
+    255,
+    0.5);
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+}
+
+        .nav-dot.active {
+            background: #FFD700;
+            transform: scale(1.5);
+}
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            z-index: 1001;
+            transition: width 0.3s ease;
+}
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem;
+    }
+            .content-grid { grid-template-columns: 1fr;
+    }
+            .stats-grid { grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="navigation" id="navigation">
+        <div class="nav-dot active" onclick="scrollToSection(0)"></div>
+        <div class="nav-dot" onclick="scrollToSection(1)"></div>
+        <div class="nav-dot" onclick="scrollToSection(2)"></div>
+        <div class="nav-dot" onclick="scrollToSection(3)"></div>
+        <div class="nav-dot" onclick="scrollToSection(4)"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section hero active" id="section-0">
+        <div class="floating-icons">💻</div>
+        <div class="floating-icons">🔧</div>
+        <div class="floating-icons">🌐</div>
+        
+        <div>
+            <h1>¿Te imaginas ser el héroe que salva empresas?</h1>
+            <p>Cuando falla la tecnología, tú eres la solución</p>
+            <button class="cta-button" onclick="scrollToSection(1)">Descubre cómo 🚀</button>
+        </div>
+    </section>
+
+    <!-- Problem/Opportunity Section -->
+    <section class="section problem" id="section-1">
+        <div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">La oportunidad está aquí</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="demandCounter">0</span>
+                    <p>% Crecimiento anual en demanda de técnicos IT</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <p>Inserción laboral inmediata</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <p>Las empresas necesitan soporte continuo</p>
+                </div>
+            </div>
+            <p style="font-size: 1.3rem; margin-top: 2rem;">
+                Cada día, miles de empresas enfrentan crisis tecnológicas.<br>
+                <strong>¿Serás tú quien las resuelva?</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section solution" id="section-2">
+        <div class="content-grid">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Tu puente al futuro digital</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <strong>🎯 3 años de formación técnica superior</strong><br>
+                        Especialización completa en infraestructura tecnológica moderna
+                    </li>
+                    <li class="feature-item">
+                        <strong>⚡ 2,
+000 horas de práctica real</strong><br>
+                        Con equipos profesionales y proyectos empresariales reales
+                    </li>
+                    <li class="feature-item">
+                        <strong>🌟 100% modalidad presencial</strong><br>
+                        Aprende haciendo, no solo leyendo
+                    </li>
+                </ul>
+            </div>
+            <div style="text-align: center;">
+                <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <h3>Dominarás:</h3>
+                    <div style="margin: 1rem 0; font-size: 1.2rem;">
+                        🔐 Administración de redes<br>
+                        🖥️ Gestión de servidores<br>
+                        🛡️ Seguridad informática<br>
+                        🔧 Resolución de problemas<br>
+                        📊 Mantenimiento preventivo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits" id="section-3">
+        <div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Historias de éxito reales</h2>
+            
+            <div class="testimonial">
+                <h4>Juan Pérez - Administrador de Redes</h4>
+                <p style="font-style: italic; margin: 1rem 0;">
+                    "Comencé mis prácticas en una empresa de telecomunicaciones y hoy soy administrador de redes. 
+                    La formación práctica fue fundamental para entender los desafíos reales del trabajo."
+                </p>
+                <div style="color: #FFD700;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div class="testimonial">
+                <h4>María Gómez - Soporte Técnico Senior</h4>
+                <p style="font-style: italic; margin: 1rem 0;">
+                    "Gracias a las prácticas externas, conseguí trabajo en soporte técnico de una multinacional 
+                    antes de graduarme. Los contactos que hice fueron clave."
+                </p>
+                <div style="color: #FFD700;">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h3>Dónde podrás trabajar:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div class="stat-card">🏢 Empresas tecnológicas</div>
+                    <div class="stat-card">🏛️ Sector público</div>
+                    <div class="stat-card">🏦 Bancos e industrias</div>
+                    <div class="stat-card">💼 Freelance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section final-cta" id="section-4">
+        <div style="text-align: center;">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">¡Tu futuro en TI te espera!</h2>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); margin: 2rem 0;">
+                <h3>📋 Requisitos de inscripción:</h3>
+                <p style="margin: 1rem 0;">
+                    ✅ Educación secundaria completa<br>
+                    ✅ Inscripción presencial o virtual<br>
+                    ✅ Ganas de transformar el mundo digital
+                </p>
+            </div>
+
+            <div style="margin: 3rem 0;">
+                <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">El futuro digital comienza con tu decisión de hoy</h4>
+                <button class="cta-button" style="font-size: 1.5rem; padding: 20px 40px;" onclick="alert('¡Excelente! Contacta a la institución para más información sobre inscripciones.')">
+                    ¡INSCRÍBETE AHORA! 🎓
+                </button>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.2rem; opacity: 0.9;">
+                La tecnología necesita profesionales como tú.<br>
+                <strong>¡No dejes pasar esta oportunidad!</strong>
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Navigation and scroll functionality
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const progressBar = document.getElementById('progressBar');
+
+        function scrollToSection(index) {
+            sections[currentSection
+    ].classList.remove('active');
+            navDots[currentSection
+    ].classList.remove('active');
+            
+            currentSection = index;
+            
+            sections[currentSection
+    ].classList.add('active');
+            navDots[currentSection
+    ].classList.add('active');
+            
+            sections[currentSection
+    ].scrollIntoView({ behavior: 'smooth'
+    });
+            
+            // Update progress bar
+            progressBar.style.width = ((index + 1) / sections.length) * 100 + '%';
+}
+// Auto-scroll functionality
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            
+            if (e.deltaY > 0 && currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+    } else if (e.deltaY < 0 && currentSection > 0) {
+                scrollToSection(currentSection - 1);
+    }
+});
+
+        // Keyboard navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' && currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+    } else if (e.key === 'ArrowUp' && currentSection > 0) {
+                scrollToSection(currentSection - 1);
+    }
+});
+
+        // Counter animation for demand stat
+        function animateCounter() {
+            const counter = document.getElementById('demandCounter');
+            let count = 0;
+            const target = 25;
+            const speed = 50;
+            
+            const timer = setInterval(() => {
+                count++;
+                counter.textContent = count;
+                if (count >= target) {
+                    clearInterval(timer);
+        }
+    }, speed);
+}
+// Trigger counter when section becomes visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'section-1') {
+                    animateCounter();
+        }
+    });
+});
+
+        sections.forEach(section => {
+            observer.observe(section);
+});
+
+        // Initialize
+        progressBar.style.width = '20%';
+
+        // Mobile touch support
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[
+        0
+    ].screenY;
+});
+
+        window.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[
+        0
+    ].screenY;
+            handleSwipe();
+});
+
+        function handleSwipe() {
+            if (touchEndY < touchStartY - 50 && currentSection < sections.length - 1) {
+                scrollToSection(currentSection + 1);
+    }
+            if (touchEndY > touchStartY + 50 && currentSection > 0) {
+                scrollToSection(currentSection - 1);
+    }
+}
+    </script>
+</body>
+</html> 
